@@ -2,6 +2,16 @@ import os
 from pathlib import Path
 import csv
 
+class Iterator:
+    def __init__(self, start = 0):
+        self.num = start
+    def __iter__(self):
+        return self
+    def __next__(self):
+        num = self.num
+        self.num += 1
+        return num
+
 class Human:
     "Базовый класс для определения человека"
 
@@ -19,6 +29,11 @@ class Human:
             self.age = newAge
         return self.age
 
+    @staticmethod
+    def is_adult(getAge):
+        if getAge >= 18:
+            return getAge
+
     def getGender(self, newGender):
         if newGender == 'Male':
             self.gender = newGender
@@ -27,4 +42,9 @@ class Human:
         return self.gender
 
 class OfficeWorker(Human):
-    pass
+    def __init__(self, name, age, gender, date, post):
+        Human.__init__(self, name, age, gender)
+        self.date = date
+        self.post = post
+    def move(self, date):
+        pass
