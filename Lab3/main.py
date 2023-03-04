@@ -2,11 +2,11 @@ import os
 from pathlib import Path
 import csv
 
-def countFiles():
-    fileName = input("Введите путь к папке: ")
-    file = Path(fileName)
-    files = os.listdir(file)
-    print(f"В данной папке содержатся следующие объекты: {files}\nИх количество: {len(files)}")
+# def countFiles():
+#     fileName = input("Введите путь к папке: ")
+#     file = Path(fileName)
+#     files = os.listdir(file)
+#     print(f"В данной папке содержатся следующие объекты: {files}\nИх количество: {len(files)}")
 
 def get_BD_to_Dict(moveHistory):
     print("movement number;date and time;workplace sign;room number")
@@ -48,7 +48,7 @@ def write_to_csv(moveHistory):
 
 
 def main():
-    countFiles()
+    # countFiles()
     moveHistory = {}
     get_BD_to_Dict(moveHistory)
     sort_movement_number(moveHistory)

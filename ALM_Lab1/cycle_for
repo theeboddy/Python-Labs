@@ -1,0 +1,16 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "N = ";
+
+    int res = 1;
+    for (int i = 1; i <= n; i++) {
+        res *= i;
+        }
+
+    cout << "RES = " << res << endl;
+    return 0;
+}

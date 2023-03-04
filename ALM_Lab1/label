@@ -1,0 +1,7 @@
+    int i = 1;
+    cycle:
+        if (i <= n) {
+         res *= i;
+         i++;
+            goto cycle;
+        }
