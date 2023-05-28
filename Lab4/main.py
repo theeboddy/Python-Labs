@@ -78,7 +78,7 @@ class OfficeWorker(Human):
         return self.__dict__[s]
 
 
-class OfficeIterator(OfficeWorker):
+class OfficeIterator:
     def __init__(self, movements, start=0):
         OfficeWorker.__init__(self, movements)
         self.movements = movements
@@ -92,9 +92,13 @@ class OfficeIterator(OfficeWorker):
         else:
             return 0
 
+    def __iter__(self):
+        return self
+
 
 office_worker1 = OfficeWorker(1, "Bogdan", "20", "male", "intern", "Papaha")
 print(office_worker1.__repr__())
+
 
 
 def get_history_to_dict(move_history):
@@ -169,6 +173,9 @@ def write_to_base(workers_base):
                      + ',' + workers_base[elem][3] + ',' + workers_base[elem][4] + '\n')
 
 
+
+
+
 def main():
     # countFiles()
     version = int(input("1. Работа с историей перемещения;\n2. Работа с базой сотрудников\nВведите нужный вариант: "))
@@ -185,6 +192,7 @@ def main():
             get_workers_base(workers_base)
             sort_id(workers_base)
             write_to_base(workers_base)
+
 
 
 if __name__ == "__main__":
